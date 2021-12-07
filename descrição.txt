@@ -1,0 +1,45 @@
+Nome do Sistema: Condo Mobile 
+
+Objetivo do sistema:
+Ajudar na administração de condominios, gerando rotinas de manutenção, reclamoções, abertura de chamdaos e impressão de boletos e etc.
+
+Funcionalidades:
+•Realizar login;
+    E-mail e Senha
+•Cadastrar;
+    Nome, Telefone, Email, senha
+•Realizar reservas;
+    Tipo de reserva (piscina ou salão de festa);
+    dia, horario, quantidade de convidados, nomes dos convidados, numero de protocolo(após a confirmação)
+•Cancelar reservas;
+    pode cancelar até 48 horas antes.
+    se não hover o cancelamento, o morador não poderá fazer novas resevas no periode de uma semana.
+    cancelamento será usando o protocolo. confirmar se deseja cancelar
+•Abertura de chamados;
+    tipo de chamado(Hidraulico ou eletrico)
+    descricao, midia(jpeg, png, mp4), urgencia, status
+•Consultar chamado;
+    numero, ou por historico de chamados 
+    ao consultar chamado se desejar pode cancelar o chamado
+•Cancelar chamado;
+    motivo cancelamento do chamado
+	•Problema Resolvido;
+	•Abertura de Chamado Equivocada;
+	•Reativar Chamado;
+	•Outros Motivos.
+	ou um imput de texto onde o usuario digitará o motivo
+
+•Verificar avisos;
+    titulo, descricao
+•Consulta de regimento interno;
+    Disponibiliza os documentos publicos do condominio para downlos
+    Nome do documento, caminho do documento
+•Registro de Reclamações;
+    Titulo, descricao, usuario, midia(jpeg, png, mp4)
+•Cancelar reclamação;
+    motivo cancelar reclamação(Resolvido, resolvido parcialmente outros motivos)
+•Fale com a Portaria.
+
+
+   
+

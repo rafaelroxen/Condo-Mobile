@@ -1,0 +1,75 @@
+body {
+	/* margin: 0;
+	padding: 0;
+	font-family:Segoe UI; */
+	background-image: url(../images/fundo.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+
+}
+textarea:focus, input:focus, select:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+} 
+.cont-pag-login {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height:100vh;
+	max-width: 1920px;
+}
+.cont-login {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 30%;
+	height: 500px;
+	border-radius: 10px;
+	background-color: #008fc3;
+	border: 2px solid rgb(204, 152, 54);
+}
+.logo {
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+	font-family: Helvetica;
+	font-size: 28px;
+	font-weight: bold;
+	color: rgb(204, 152, 54);
+	width: 80%;
+	border-radius: 40px;
+	background-color: #fff;
+	margin:60px 0 40px 0;
+}
+.form-login {
+	display: flex;
+	flex-direction: column;
+	width: 75%;
+	margin-bottom: 30px;
+}
+.form-login input {
+	height: 30px;
+	padding-left: 10px;
+	border: 0;
+	border-radius: 5px;
+	color: #666;
+}
+.login-descricao {
+	color: #fff;
+	font-size: 18px;
+	font-weight: bold;
+}
+.btn-link {
+	text-decoration: none;
+	color: #fff;
+	margin-top: 10px;
+}
+.mgs-err {
+	color: rgb(255, 123, 0);
+	font-weight: bold;
+	font-size: 18px;
+}
+

@@ -1,0 +1,139 @@
+/*Cria a base de dados*/
+CREATE DATABASE condo_mobile;
+
+USE condo_mobile;
+
+/*Cria a tabela de usuarios*/
+CREATE TABLE usuarios(
+	idUsuario INT NOT NULL AUTO_INCREMENT,
+	nomeUsuario VARCHAR(300) NOT NULL,
+	telfoneUsuario VARCHAR(50) NOT NULL, 
+	emailUsuario VARCHAR(300) NOT NULL,
+	senhaUsuario VARCHAR(32),
+	PRIMARY KEY (idUsuario)
+);
+
+/*Cria a tabela Tipo Reserva*/
+CREATE TABLE tipo_reserva(
+	idTipoReserva INT NOT NULL AUTO_INCREMENT,
+	nomeTipoReserva VARCHAR(100) NOT NULL,
+	PRIMARY KEY (idTipoReserva)
+);
+
+/*Insere dados na tabela Tipo Reserva*/
+INSERT INTO tipo_reserva (nomeTipoReserva) VALUES ('Piscina'); 
+INSERT INTO tipo_reserva (nomeTipoReserva) VALUES ('Salão de Festas'); 
+
+/*Cria a tabela de Reservas*/
+CREATE TABLE reservas(
+	idReserva INT NOT NULL AUTO_INCREMENT,
+	idUsuarioReserva INT NOT NULL,
+	idTipoReserva INT NOT NULL,
+	diaReserva DATE NOT NULL,
+	horaReserva TIME NOT NULL,
+	qtConvidadosReserva INT NOT NULL,
+	listaConvidadosReserva TEXT NOT NULL,
+	protocoloReserva VARCHAR(30) NOT NULL,
+	PRIMARY KEY (idReserva)
+);
+
+/*Cria a tabela tipo chamado*/
+CREATE TABLE tipo_chamado(
+	idTipoChamado INT NOT NULL AUTO_INCREMENT,
+	nomeTipoChamado VARCHAR(100) NOT null,
+	PRIMARY KEY (idTipoChamado)
+);
+
+/*Insere valores na tabela tipo chamado*/
+INSERT INTO tipo_chamado (nomeTipoChamado) VALUES ('Hidraulico');
+INSERT INTO tipo_chamado (nomeTipoChamado) VALUES ('Elétrico');
+
+/*Cria a table nivel de chamado*/
+CREATE TABLE nivel_chamado(
+	idNivelChamado INT NOT NULL AUTO_INCREMENT,
+	nomeNivelChamado VARCHAR(100) NOT NULL, 
+	PRIMARY KEY(idNivelChamado)
+);
+
+/*Insere valor padão na tabela nivel de chamado*/
+INSERT INTO nivel_chamado (nomeNivelChamado) VALUES ('Urgente');
+INSERT INTO nivel_chamado (nomeNivelChamado) VALUES ('Não Urgente');
+
+/*Cria a tabela de status do sistema*/
+CREATE TABLE status_sistema(
+	idStatus INT NOT NULL AUTO_INCREMENT,
+	descricaoStatus VARCHAR(100) NOT NULL, 
+	PRIMARY KEY(idStatus)
+);
+
+/*Insere valores na tabela status_sistema*/
+INSERT INTO status_sistema (descricaoStatus) VALUES ('Não Iniciado');
+INSERT INTO status_sistema (descricaoStatus) VALUES ('Em Andamento');
+INSERT INTO status_sistema (descricaoStatus) VALUES ('Concluído');
+
+/*Cria a tabela de motivo cancelamento chamado*/
+CREATE TABLE chamado_motivo_cancelamento(
+	idMotivoCancelamento INT NOT NULL AUTO_INCREMENT,
+	nomeMotivoCancelamento VARCHAR(300) NOT NULL, 
+	PRIMARY KEY(idMotivoCancelamento)
+);
+
+/*Insere valores padõres na tabela chamado_motivo_cancelamento*/
+INSERT INTO chamado_motivo_cancelamento (nomeMotivoCancelamento) VALUES ('Problema Resolvido');
+INSERT INTO chamado_motivo_cancelamento (nomeMotivoCancelamento) VALUES ('Abertura de Chamado Equivocada');
+INSERT INTO chamado_motivo_cancelamento (nomeMotivoCancelamento) VALUES ('Reativar Chamado');
+INSERT INTO chamado_motivo_cancelamento (nomeMotivoCancelamento) VALUES ('Outros Motivos');
+INSERT INTO chamado_motivo_cancelamento (nomeMotivoCancelamento) VALUES ('Ativo');
+
+/*Cria a tabela de chamados*/
+CREATE TABLE chamados(
+	idChamado INT NOT NULL AUTO_INCREMENT,
+	idUsuarioChamado INT NOT NULL,
+	idTipoChamado INT NOT NULL,
+	idNivelChamado INT NOT NULL,
+	idStatusChamado INT NOT NULL,
+	idMotivoCancelamento INT NOT null,
+	descricaoChamado VARCHAR(100) NOT null,
+	midiaChamado VARCHAR(300),
+	prazo  DATETIME,
+	PRIMARY KEY (idChamado)
+);
+
+/*Tabela de avisos*/
+CREATE TABLE avisos(
+	idAviso INT NOT NULL AUTO_INCREMENT,
+	titulo vahrcar(150),
+	descricaoAviso TEXT NOT NULL, 
+	PRIMARY KEY(idAviso)
+);
+
+/*Download de documentos importantes*/
+CREATE TABLE downloads(
+	idDownload INT NOT NULL AUTO_INCREMENT,
+	nomeDownload VARCHAR(100) NOT NULL,
+	localDownload VARCHAR(300) NOT NULL,
+	PRIMARY KEY(idDownload)
+);
+
+/*Cria tabela motivo cancela reclamação*/
+CREATE TABLE motivo_cancela_reclamacao(
+	idMotivoCancel INT NOT NULL AUTO_INCREMENT,
+	descricaoMotivoCancel VARCHAR(100),
+	PRIMARY KEY(idMotivoCancel)
+);
+
+/*Insere dados padrao na tablema motivo cancela reclamação*/
+INSERT INTO motivo_cancela_reclamacao (descricaoMotivoCancel) VALUES ('Resolvido');
+INSERT INTO motivo_cancela_reclamacao (descricaoMotivoCancel) VALUES ('Resolvido parcialmente');
+INSERT INTO motivo_cancela_reclamacao (descricaoMotivoCancel) VALUES ('Outos Motivos');
+
+/*Cria a tabela reclamacao*/
+CREATE TABLE reclamacao(
+	idReclamacao INT NOT NULL AUTO_INCREMENT,
+	idUsuarioReclamacao INT NOT NULL,
+	idMotivoCancelReclamacao INT,
+	tituloReclamacao VARCHAR(300) NOT NULL,
+	descricaoReclamacao VARCHAR(500) NOT NULL,
+	midiaReclamacao VARCHAR(150), 
+	PRIMARY KEY(idReclamacao)
+);
